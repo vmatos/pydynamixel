@@ -30,6 +30,7 @@ from defs import DEVICE
 
 AX12 = DEVICE['AX12']
 AXS1 = DEVICE['AXS1']
+MX64 = DEVICE['MX64']
 
 class DynamixelInterface(object):
     """ Interface to Dynamixel CM-5 """

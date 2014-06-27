@@ -44,6 +44,45 @@ BAUD_RATE = enumeration.Enumeration( [
     ('Baud_19200', 0x67),
     ('Baud_9600', 0xcf) ] )
 
+REGISTER_MX64 = enumeration.Enumeration( [
+    ('ModelNumber',  0, {'registerLen': 2, 'textDesc': "Model Number"}),
+    ('FirmwareVersion',  2, {'registerLen': 1, 'textDesc': "Firmware Version"}),
+    ('Id', 3, {'registerLen': 1, 'textDesc': "Id"}),
+    ('BaudRate',  4, {'registerLen': 1, 'textDesc': "Baud Rate"}),
+    ('ReturnDelay',  5, {'registerLen': 1, 'textDesc': "Return Delay"}),
+    ('CWAngleLimit',  6, {'registerLen': 2, 'textDesc': "CW Angle Limit"}),
+    ('CCWAngleLimit',  8, {'registerLen': 2, 'textDesc': "CCW Angle Limit"}),
+    ('TemperatureLimit',  11, {'registerLen': 1, 'textDesc': "Temperature Limit"}),
+    ('LowVoltageLimit',  12, {'registerLen': 1, 'textDesc': "Low Voltage Limit"}),
+    ('HighVoltageLimit',  13, {'registerLen': 1, 'textDesc': "High Voltage Limit"}),
+    ('MaxTorque',  14, {'registerLen': 2, 'textDesc': "Max Torque"}),
+    ('StatusReturnLevel',  16, {'registerLen': 1, 'textDesc': "Status Return Level"}),
+    ('AlarmLED',  17, {'registerLen': 1, 'textDesc': "Alarm Led"}),
+    ('AlarmShutdown',  18, {'registerLen': 1, 'textDesc': "Alarm Shutdown"}),
+    ('MultiTurnOffset',  20, {'registerLen': 2, 'textDesc': "Multi-turn Ofsset"}),
+    ('ResolutionDivider',  22, {'registerLen': 1, 'textDesc': "Resolution divided"}),
+    ('TorqueEnable',  24, {'registerLen': 1, 'textDesc': "Torque Enable"}),
+    ('LED',  25, {'registerLen': 1, 'textDesc': "LED"}),
+    ('DGain',  26, {'registerLen': 1, 'textDesc': "CW Compliance Margin"}),
+    ('IGain',  27, {'registerLen': 1, 'textDesc': "CCW Compliance Margin"}),
+    ('PGain',  28, {'registerLen': 1, 'textDesc': "CW Compliance Slope"}),    
+    ('GoalPosition', 30, {'registerLen': 2, 'textDesc': "Goal Position"}),
+    ('MovingSpeed', 32, {'registerLen': 2, 'textDesc': "Moving Speed"}),
+    ('TorqueLimit',  34, {'registerLen': 2, 'textDesc': "Torque Limit"}),
+    ('CurrentPosition',  36, {'registerLen': 2, 'textDesc': "Current Position"}),
+    ('CurrentSpeed',  38, {'registerLen': 2, 'textDesc': "Current Speed"}),
+    ('CurrentLoad',  40, {'registerLen': 2, 'textDesc': "Current Load"}),
+    ('CurrentVoltage',  42, {'registerLen': 1, 'textDesc': "Current Voltage"}),
+    ('CurrentTemperature',  43, {'registerLen': 1, 'textDesc': "Current Temperature"}),
+    ('RegisteredInstruction',  44, {'registerLen': 1, 'textDesc': "Registered Instruction"}),
+    ('Moving',  46, {'registerLen': 1, 'textDesc': "Moving"}),
+    ('Lock',  47, {'registerLen': 1, 'textDesc': "Lock"}),
+    ('Punch',  48, {'registerLen': 2, 'textDesc': "Punch"} ),
+    ('Current',  68, {'registerLen': 2, 'textDesc': "Consuming current"} ),
+    ('TorqueControl',  70, {'registerLen': 1, 'textDesc': "Torque control enable"} ),
+    ('GoalTorque',  71, {'registerLen': 2, 'textDesc': "Goal torque value"} ),
+    ('GoalAcceleration',  73, {'registerLen': 1, 'textDesc': "Goal acceleration value"} ) ] )
+
 REGISTER_AX12 = enumeration.Enumeration( [
     ('ModelNumber',  0, {'registerLen': 2, 'textDesc': "Model Number"}),
     ('FirmwareVersion',  2, {'registerLen': 1, 'textDesc': "Firmware Version"}),
@@ -120,6 +159,7 @@ REGISTER_AXS1 = enumeration.Enumeration( [
 
 DEVICE = enumeration.Enumeration( [
     ('AX12', REGISTER_AX12, 'AX-12 Servo'),
+    ('MX64', REGISTER_MX64, 'MX-64 Servo'),
     ('AXS1', REGISTER_AXS1, 'AX-S1 Sensor Module') ] )
 
 STATUS_RETURN_LEVEL = enumeration.Enumeration( [

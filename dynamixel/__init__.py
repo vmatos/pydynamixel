@@ -21,6 +21,7 @@ __version__ =  '1.1.0'
 
 from dynamixel import Dynamixel, SensorModule
 from dynamixel_network import DynamixelNetwork
+from dynamixel_mx64 import DynamixelMX64
 from echo_stream import EchoStream
 from serial_stream import SerialStream
 from defs import ERROR_STATUS, BAUD_RATE, DEVICE, INSTRUCTION, \
