@@ -24,7 +24,7 @@ import defs
 import stream
 import event_handler
 import time
-import dynamixel
+import dynamixel_mx64 as dynamixel
 
 from defs import DEVICE
 
@@ -491,11 +491,12 @@ class DynamixelInterface(object):
         throws ValueError on arguments out of range
         """
         if end_id > 253 or end_id < 0:
-            raise ValueError("end_id must be 0 to 233")
+            raise ValueError("end_id must be 0 to 253")
         if start_id > end_id or start_id < 0:
             raise ValueError("start_id must be 0 to end_id")
         ids = []
         for ident in xrange(start_id, end_id + 1):
+            print "Ping: " + str(ident)
             if self.ping(ident):
                 ids.append(ident)
         return ids
@@ -552,7 +553,7 @@ class DynamixelNetwork (DynamixelInterface):
         self._dynamixel_map = {}
         ids = self.scan_ids(start_id, end_id)
         for ident in ids:
-            self._dynamixel_map[ident] = dynamixel.Dynamixel(ident, self)
+            self._dynamixel_map[ident] = dynamixel.DynamixelMX64(ident, self)
 
     def _get_stopped(self):
         """Get if the dynamixels are stopped"""
