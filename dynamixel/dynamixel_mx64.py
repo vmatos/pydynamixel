@@ -23,7 +23,6 @@ Dynamixel interface
 
 """
  TODO: 
- - substitute compliance functions with PID gains functions
  - Add Multi-turn functions
  - Add Resolution divider functions
  - Add Consuming current
@@ -311,49 +310,29 @@ class DynamixelMX64 (object):
 
     ccw_angle_limit = property(_get_ccw_angle_limit, _set_ccw_angle_limit)
     
-    #def _get_ccw_compliance_margin(self):
-        #"""getter"""        
-        #return self._get_register_value(MX64.CCWComplianceMargin)
+    def _get_p_gain(self):
+        """getter"""        
+        return self._get_register_value(MX64.PGain)
+    def _set_p_gain(self, value):
+        """ setter """             
+        self.set_register_value(MX64.PGain, value)
+    p_gain = property(_get_p_gain, _set_p_gain)
     
-    #def _set_ccw_compliance_margin(self, value):
-        #""" setter """             
-        #self.set_register_value(MX64.CCWComplianceMargin, value)
-
-    #ccw_compliance_margin = property(_get_ccw_compliance_margin, 
-                                      #_set_ccw_compliance_margin)
-
-    #def _get_cw_compliance_margin(self):
-        #"""getter"""        
-        #return self._get_register_value(MX64.CWComplianceMargin)
+    def _get_i_gain(self):
+        """getter"""        
+        return self._get_register_value(MX64.IGain)
+    def _set_i_gain(self, value):
+        """ setter """             
+        self.set_register_value(MX64.IGain, value)
+    i_gain = property(_get_i_gain, _set_i_gain)
     
-    #def _set_cw_compliance_margin(self, value):
-        #""" setter """ 
-        #self.set_register_value(MX64.CWComplianceMargin, value)
-
-    #cw_compliance_margin = property(_get_cw_compliance_margin, 
-                                     #_set_cw_compliance_margin)
-    
-    #def _get_ccw_compliance_slope(self):
-        #"""getter"""        
-        #return self._get_register_value(MX64.CCWComplianceSlope)
-    
-    #def _set_ccw_compliance_slope(self, value):
-        #""" setter """                
-        #self.set_register_value(MX64.CCWComplianceSlope, value)
-
-    #ccw_compliance_slope = property(_get_ccw_compliance_slope, 
-                                     #_set_ccw_compliance_slope)
-
-    #def _get_cw_compliance_slope(self):
-        #"""getter"""        
-        #return self._get_register_value(MX64.CWComplianceSlope)
-    
-    #def _set_cw_compliance_slope(self, value):
-        #""" setter """        
-        #self.set_register_value(MX64.CWComplianceSlope, value)
-
-    #cw_compliance_slope = property(_get_cw_compliance_slope, 
-                                    #_set_cw_compliance_slope)
+    def _get_d_gain(self):
+        """getter"""        
+        return self._get_register_value(MX64.DGain)
+    def _set_d_gain(self, value):
+        """ setter """             
+        self.set_register_value(MX64.DGain, value)
+    d_gain = property(_get_d_gain, _set_d_gain)
 
     def _get_current_load(self):
         """getter"""        
